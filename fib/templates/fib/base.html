@@ -1,11 +1,14 @@
+ <!-- base template  -->
 {% load staticfiles %}
 <DOCTYPE html!>
   <html lang="en">
   <head>
     <meta charset="utf-8"></meta>
     <title>Demo Blog</title>
+    <!-- bootstrap -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <!-- google fonts -->
     <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
   </head>
@@ -18,8 +21,10 @@
     <div class="content container">
     <div class="row">
         <div class="col-md-8">
+          <!-- django template -->
           {% block content %}
           {% endblock %}
+          <p><strong>Pratik Sayare</strong></p>
         </div>
     </div>
   </div>
