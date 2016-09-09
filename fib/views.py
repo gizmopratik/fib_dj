@@ -3,6 +3,7 @@ from .models import Fibonacci
 from .forms import FibForm
 #memoize to cache data
 from memoize import memoize
+import time
 
 # view for home page
 def home(request):
@@ -10,13 +11,16 @@ def home(request):
     if request.method == "POST":
         form = FibForm(request.POST)
         # get the user input
-        num = int(request.POST.get('parameter'))
-        # perform Fibonacci recursion
-        result = Fibonacci(num, fibo(num))
-        # commit to db
-        result.save()
-        print fibo(num)
-        return redirect('answer', pk=result.pk)
+        if form.is_valid():
+            num = int(request.POST.get('parameter'))
+            # perform Fibonacci recursion
+            start = time.time()
+            result = Fibonacci(num, fibo(num))
+            # commit to db
+            result.save()
+            timing = time.time() - start
+            print timing
+            return redirect('answer', pk=result.pk)
 
     else:
         form = FibForm()

@@ -7,7 +7,7 @@ from django.db import models
 
 class Fibonacci(models.Model):
     parameter = models.IntegerField(primary_key = True, validators=[
-            MaxValueValidator(500),
+            MaxValueValidator(92),
             MinValueValidator(1)
         ])
     result = models.BigIntegerField()
